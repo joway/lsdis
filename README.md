@@ -1,3 +1,3 @@
 # lsdis
 
-KV storage based on LocalStorage like reids.
+KV storage based on LocalStorage like redis.
