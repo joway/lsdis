@@ -1,15 +1,19 @@
 import { LocalCache } from '../src'
 
-function sum(a: number, b: number) {
-  return a + b
+function getUser(username: string) {
+  return { username }
 }
 
 const timeoutMs = 1000
 const cache = new LocalCache({ timeout: timeoutMs })
-const a = 1
-const b = 2
+const username = 'myname'
 
-cache.wrapper(`sum:${a}+${b}`, sum, a, b)
-  .then((result: string) => {
-    console.log(result)
-  })
+async function main() {
+  const result = await cache.wrapper(`getUser:${username}`, getUser, username)
+  console.log(result)
+
+  const resultAsync = await cache.wrapper(`getUser:${username}`, async () => (getUser(username)))
+  console.log(resultAsync)
+}
+
+main()

@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/lsdis.svg)](https://www.npmjs.com/package/lsdis)
 [![CircleCI](https://circleci.com/gh/joway/lsdis.svg?style=shield)](https://circleci.com/gh/joway/lsdis)
 
-KV storage based on LocalStorage like redis.
+KV storage based on LocalStorage.
 
 ## Usage
 
@@ -28,17 +28,19 @@ storage.flush()
 ```typescript
 import { LocalCache } from 'lsdis'
 
-function sum(a: number, b: number) {
-  return a + b
+function getUser(username: string) {
+  return { username }
 }
 
 const timeoutMs = 1000
 const cache = new LocalCache({ timeout: timeoutMs })
-const a = 1
-const b = 2
+const username = 'myname'
 
-cache.wrapper(`sum:${a}+${b}`, sum, a, b)
-  .then((result: string) => {
-    console.log(result)
-  })
+async function main() {
+  const result = await cache.wrapper(`getUser:${username}`, getUser, username)
+  console.log(result)
+
+  const resultAsync = await cache.wrapper(`getUser:${username}`, async () => (getUser(username)))
+  console.log(resultAsync)
+}
 ```
