@@ -17,10 +17,18 @@ const mykey = 'mykey'
 const myval = 'myval'
 const timeoutMs = 1000
 
+// set value with timeout(/ms)
 storage.set(mykey, myval, timeoutMs)
+
+// if not existed, return null else return string
 storage.get(mykey)
+
+// delete by key
 storage.del(mykey)
+
+// flush all localstorage
 storage.flush()
+
 ```
 
 ### LocalCache
@@ -37,9 +45,11 @@ const cache = new LocalCache({ timeout: timeoutMs })
 const username = 'myname'
 
 async function main() {
+  // wrapper by key with function and args
   const result = await cache.wrapper(`getUser:${username}`, getUser, username)
   console.log(result)
 
+  // wrapper by key with function
   const resultAsync = await cache.wrapper(`getUser:${username}`, async () => (getUser(username)))
   console.log(resultAsync)
 }
