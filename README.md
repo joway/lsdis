@@ -20,7 +20,7 @@ storage.del(mykey)
 storage.flush()
 ```
 
-### Cache
+### LocalCache
 
 ```typescript
 import { LocalCache } from 'lsdis'
