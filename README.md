@@ -5,6 +5,12 @@
 
 KV storage based on [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
+## Feature
+
+- Persistent data storage
+- Low level Storage API and high level Cache API
+- Support cache invalidate
+
 ## Usage
 
 ### LocalStorage
