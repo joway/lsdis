@@ -1,3 +1,5 @@
+tests
+jest.config.js
 .*.swp
 ._*
 .DS_Store
