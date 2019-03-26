@@ -1,8 +1,8 @@
 import * as bluebird from 'bluebird'
-import { Cache } from '../src'
+import { LocalCache } from '../src'
 
 test('lsdis cache wrapper', async () => {
-  const cache = new Cache({ timeout: 100 })
+  const cache = new LocalCache({ timeout: 100 })
   const testFunc = function (a: number, b: number) {
     return a + b
   }

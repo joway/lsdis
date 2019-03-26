@@ -5,7 +5,7 @@ export interface CacheConfig {
   timeout?: number
 }
 
-export default class Cache {
+export default class LocalCache {
   storage: LocalStorage
   config: CacheConfig
 
