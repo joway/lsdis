@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/lsdis.svg)](https://www.npmjs.com/package/lsdis)
 [![CircleCI](https://circleci.com/gh/joway/lsdis.svg?style=shield)](https://circleci.com/gh/joway/lsdis)
 
-KV storage based on LocalStorage.
+KV storage based on [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
 ## Usage
 
