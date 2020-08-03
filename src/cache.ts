@@ -14,7 +14,7 @@ export default class LocalCache {
     this.storage = new LocalStorage()
   }
 
-  wrapper(key: string, func: Function, ...args: any[]) {
+  async wrapper(key: string, func: Function, ...args: any[]) {
     const val = this.storage.get(key)
     if (val) return val
 
