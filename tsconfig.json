@@ -10,7 +10,7 @@
     "module": "commonjs",
     "sourceMap": true,
     "declaration": true,
-    "target": "es5",
+    "target": "es2015",
     "strictNullChecks": true,
     "typeRoots": [
       "node_modules/@types"

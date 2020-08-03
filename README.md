@@ -5,15 +5,19 @@
 
 KV storage based on [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
+## Purpose
+
+Cache requests with localStorage in the browser.
+
 ## Feature
 
-- Persistent data storage
-- Low level Storage API and high level Cache API
-- Support cache invalidate
+- Local storage API
+- Cache wrapper
+- Cache invalidate
 
 ## Usage
 
-### LocalStorage
+### LocalStorage - Low Level API
 
 ```typescript
 import LocalStorage from 'lsdis'
@@ -37,12 +41,13 @@ storage.flush()
 
 ```
 
-### LocalCache
+### LocalCache - High Level API
 
 ```typescript
 import { LocalCache } from 'lsdis'
 
 function getUser(username: string) {
+  // fetch request data
   return { username }
 }
 
@@ -52,11 +57,18 @@ const username = 'myname'
 
 async function main() {
   // wrapper by key with function and args
-  const result = await cache.wrapper(`getUser:${username}`, getUser, username)
+  const result = await cache.wrapper(
+    `getUser:${username}`, 
+    getUser, 
+    username,
+  )
   console.log(result)
 
   // wrapper by key with function
-  const resultAsync = await cache.wrapper(`getUser:${username}`, async () => (getUser(username)))
+  const resultAsync = await cache.wrapper(
+    `getUser:${username}`, 
+    async () => (getUser(username)),
+  )
   console.log(resultAsync)
 }
 ```
