@@ -18,7 +18,7 @@ export default class LocalCache {
     const val = this.storage.get(key)
     if (val) return val
 
-    return Promise.resolve(func(...args)).then(newVal => {
+    return Promise.resolve(func(...args)).then((newVal) => {
       try {
         this.storage.set(key, newVal, this.config.timeout || -1)
       } catch (err) {
