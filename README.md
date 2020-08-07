@@ -9,6 +9,20 @@ KV storage based on [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/
 
 Cache requests with localStorage in the browser.
 
+## Install
+
+```bash
+# nodejs
+npm i -S lsdis
+```
+
+Or
+
+```html
+<!-- browser -->
+<script src='https://cdn.jsdelivr.net/npm/lsdis@latest/dist/lsdis.min.js'></script>
+```
+
 ## Feature
 
 - Local storage API
@@ -38,7 +52,6 @@ storage.del(mykey)
 
 // flush all localstorage
 storage.flush()
-
 ```
 
 ### LocalCache - High Level API
@@ -57,18 +70,11 @@ const username = 'myname'
 
 async function main() {
   // wrapper by key with function and args
-  const result = await cache.wrapper(
-    `getUser:${username}`, 
-    getUser, 
-    username,
-  )
+  const result = await cache.wrapper(`getUser:${username}`, getUser, username)
   console.log(result)
 
   // wrapper by key with function
-  const resultAsync = await cache.wrapper(
-    `getUser:${username}`, 
-    async () => (getUser(username)),
-  )
+  const resultAsync = await cache.wrapper(`getUser:${username}`, async () => getUser(username))
   console.log(resultAsync)
 }
 ```
