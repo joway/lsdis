@@ -25,7 +25,7 @@
     "ts-jest": "^24.0.0",
     "tslint-jike-node": "0.0.18",
     "typescript": "^3.3.4000",
-    "webpack": "^4.29.6",
+    "webpack": "^5.35.1",
     "webpack-cli": "^4.1.0"
   },
   "dependencies": {}
